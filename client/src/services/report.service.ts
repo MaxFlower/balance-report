@@ -1,4 +1,4 @@
-import { APP_ERRORS } from "../types";
+import { APP_ERRORS } from '../types';
 import { GetBalanceSheetResponse } from '../../../lib';
 
 export const API_URL = 'http://localhost:4000/BalanceSheet';

@@ -2,16 +2,16 @@
 FROM node:18
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /app/client
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY ./client/package*.json .
 
 # Install app dependencies
 RUN npm install
 
 # Copy the rest of your application code to the working directory
-COPY . .
+COPY ./client .
 
 # Expose a port to communicate with the React app
 EXPOSE 5173
