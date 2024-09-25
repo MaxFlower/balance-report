@@ -5,10 +5,10 @@ FROM node:18
 WORKDIR /app/client
 
 # Copy package.json and package-lock.json to the working directory
-COPY ./client/package*.json .
+COPY ./client/package.json .
 
 # Install app dependencies
-RUN npm install
+RUN yarn
 
 # Copy the rest of your application code to the working directory
 COPY ./client .
@@ -17,4 +17,4 @@ COPY ./client .
 EXPOSE 5173
 
 # Start your React app
-CMD ["npm", "run", "dev"]
+CMD yarn dev

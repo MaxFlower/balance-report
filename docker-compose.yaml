@@ -17,6 +17,9 @@ services:
     volumes:
       - ./client:/app/client
       - ./lib:/app/lib
+      - /app/client/node_modules
+    ports:
+      - '5173:5173'  
   smtm_server:
     build:
       dockerfile: ./server/Dockerfile
@@ -26,3 +29,5 @@ services:
     volumes:
       - ./server:/app/server
       - ./lib:/app/lib
+    ports:
+      - '4000:4000'    
