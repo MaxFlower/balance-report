@@ -1,5 +1,5 @@
 // src/components/DataComponent.js
-import React, { memo, useCallback } from 'react';
+import React, { memo } from 'react';
 import { Table, Text } from '@mantine/core';
 import { ReportCell, ReportRow, ROW_TYPE } from '../../../../../lib';
 
@@ -59,8 +59,6 @@ const BalanceSheetRow: React.FC<IBalanceSheetRowProps> = ({ row, id }) => {
     [ROW_TYPE.SummaryRow]: () =>
       highlightedRow('Summary', buildCells(row.Cells)),
   };
-
-  console.log('row: ', row);
 
   return elements[row.RowType]() || null;
 };

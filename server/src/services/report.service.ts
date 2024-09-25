@@ -3,7 +3,7 @@ import {
   GetBalanceSheetResponse,
 } from '../../../lib';
 import { ERROR_MESSAGE, RequestError } from '../errors/errors';
-import { XRO_API } from '../utils/constants';
+import { XRO_API } from '../index';
 
 const XRO_API_REPORT = `${XRO_API}/Reports`;
 

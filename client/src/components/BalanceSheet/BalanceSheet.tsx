@@ -1,5 +1,5 @@
 // src/components/DataComponent.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { IconInfoCircle } from '@tabler/icons-react';
 import { Table, Text, Alert } from '@mantine/core';
 import { fetchBalanceSheet } from '../../services/report.service';
@@ -60,4 +60,4 @@ const BalanceSheet: React.FC = () => {
   );
 };
 
-export default BalanceSheet;
+export default memo(BalanceSheet);

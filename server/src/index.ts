@@ -8,6 +8,10 @@ import 'express-async-errors';
 const PORT = 4000;
 const app = express();
 const cors = require('cors');
+export const XRO_API =
+  process.env.NODE_ENV === 'local'
+    ? 'http://localhost:3000/api.xro/2.0'
+    : 'http://xero_api:3000/api.xro/2.0';
 
 // Middlewares
 app.use(compression());
