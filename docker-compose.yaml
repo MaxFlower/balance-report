@@ -16,6 +16,7 @@ services:
     working_dir: /app/client
     volumes:
       - ./client:/app/client
+      - ./lib:/app/lib
   smtm_server:
     build:
       dockerfile: ./server/Dockerfile
@@ -24,3 +25,4 @@ services:
     working_dir: /app/server
     volumes:
       - ./server:/app/server
+      - ./lib:/app/lib
