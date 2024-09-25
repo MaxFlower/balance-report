@@ -3,6 +3,8 @@ version: '3.7'
 services:
   xero_api:
     image: jaypeng2015/show-me-the-money
+    networks:
+      - smtm-network
     ports:
       - '3000:3000'
   smtm_client:
@@ -18,6 +20,8 @@ services:
       - ./client:/app/client
       - ./lib:/app/lib
       - /app/client/node_modules
+    networks:
+      - smtm-network
     ports:
       - '5173:5173'  
   smtm_server:
@@ -29,5 +33,10 @@ services:
     volumes:
       - ./server:/app/server
       - ./lib:/app/lib
+    networks:
+      - smtm-network
     ports:
       - '4000:4000'    
+networks:
+  smtm-network:
+    driver: bridge

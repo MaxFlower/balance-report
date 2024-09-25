@@ -12,7 +12,7 @@ const cors = require('cors');
 // Middlewares
 app.use(compression());
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 // Custom CORS middleware
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin

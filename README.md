@@ -13,21 +13,32 @@ This project is structured as a monorepo with separate client and server directo
 └── README.md           # Project documentation
 ```
 
-### Run server
-```
-cd server // from root
-npm install
-npm run dev
-```
-This will set up the server running on `http://localhost:4000`
 
-### Run client app
+### Running steps
+
+Run the following command in your command-line:
+
 ```
-cd client // from root
-npm install
-npm run dev
+   docker-compose up -d --build
 ```
-This will set up the server running on `http://localhost:3000` and connect the client app with the server
+This will set up:
+- the server running on `http://localhost:4000`
+- xro docker image running on `http://localhost:3000`
+- client app running on `http://localhost:5173`
+
+### Run unit tests
+```
+cd server // from client or server folder
+npm run test
+```
+
+### Code formatting with Prettier
+```
+// from root
+npm run test
+```
 
 ### TODO (what might be improved)
-- it makes sense to go with Lerna or Turbo to set up monorepo design 
+- it makes sense to go with Lerna or Turbo to set up monorepo design
+- use ENV VARIABLES instead of hardcoded values
+- increase test coverage
