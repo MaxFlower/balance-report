@@ -1,0 +1,26 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--secondary-light-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper {
+  width: 21cm;
+  min-height: 29.7cm; /* A4 */
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2cm;
+  overflow-y: auto;
+}
+
+.content {
+  height: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+}

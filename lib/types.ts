@@ -4,6 +4,13 @@ export enum TIMEFRAME {
     YEAR = 'YEAR'
 }
 
+export enum ROW_TYPE {
+    Header = 'Header',
+    Section = 'Section',
+    Row = 'Row',
+    SummaryRow = 'SummaryRow'
+}
+
 /**
  * @name GetBalanceSheetQueryParams
  * GET BalanceSheet
@@ -30,6 +37,21 @@ export type GetBalanceSheetQueryParams = {
 export type ReportType = 'BalanceSheet'
 
 /**
+ * @name Cells
+ * @example
+ *
+ * "Cells": [
+ *   { "Value": "" },
+ *   { "Value": "28 Feb 2018" },
+ *   { "Value": "28 Feb 2017", "Attributes": {"Value": "13918178-849a-4823-9a31-57b7eac713d7", "Id": "account"}] }
+ * ]
+ */
+export type ReportCell = {
+    Value?: string
+    Attributes?: { Value: string, Id: string }[]
+}
+
+/**
  * @name ReportRow
  * @example
  *
@@ -47,7 +69,10 @@ export type ReportType = 'BalanceSheet'
  * },
  */
 export type ReportRow = {
-
+    RowType: ROW_TYPE
+    Cells?: ReportCell[]
+    Title?: string
+    Rows?: ReportRow[]
 }
 
 export type Report = {
@@ -86,3 +111,106 @@ export type Report = {
 export interface GetBalanceSheetResponse {
     Reports: Report[]
 }
+
+export const reportsMock: GetBalanceSheetResponse = {
+    "Reports": [
+      {
+        "ReportID": "BalanceSheet",
+        "ReportName": "Balance Sheet",
+        "ReportType": "BalanceSheet",
+        "ReportTitles": [
+          "Balance Sheet",
+          "Demo Company (AU)",
+          "As at 28 February 2018"
+        ],
+        "ReportDate": "23 February 2018",
+        "UpdatedDateUTC": "\/Date(1519358515899)\/",
+        "Rows": [
+          {
+            RowType: ROW_TYPE.Header,
+            Cells: [
+              { Value: "" },
+              { Value: "28 Feb 2018" },
+              { Value: "28 Feb 2017" }
+            ]
+          },
+          {
+            RowType: ROW_TYPE.Section,
+            Title: "Assets"
+          },
+          {
+            RowType: ROW_TYPE.Section,
+            Title: "Bank",
+            Rows: [
+              {
+                RowType: ROW_TYPE.Row,
+                Cells: [
+                  {
+                    "Value": "Business Bank Account",
+                    "Attributes": [
+                      {
+                        "Value": "13918178-849a-4823-9a31-57b7eac713d7",
+                        "Id": "account"
+                      }
+                    ]
+                  },{
+                    "Value": "-2894.08",
+                    "Attributes": [
+                      {
+                        "Value": "13918178-849a-4823-9a31-57b7eac713d7",
+                        "Id": "account"
+                      }
+                    ]
+                  },{
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "13918178-849a-4823-9a31-57b7eac713d7",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },{
+                RowType: ROW_TYPE.Row,
+                Cells: [
+                  {
+                    "Value": "Business Savings Account",
+                    "Attributes": [
+                      {
+                        "Value": "26028d3a-f981-44d6-a9ed-a522198870f8",
+                        "Id": "account"
+                      }
+                    ]
+                  },{
+                    "Value": "6878.28",
+                    "Attributes": [
+                      {
+                        "Value": "26028d3a-f981-44d6-a9ed-a522198870f8",
+                        "Id": "account"
+                      }
+                    ]
+                  },{
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "26028d3a-f981-44d6-a9ed-a522198870f8",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },{
+                RowType: ROW_TYPE.SummaryRow,
+                Cells: [
+                  { Value: "Total Bank" },
+                  { Value: "3984.20" },
+                  { Value: "0.00" }
+                ]
+              }
+            ]
+          },
+        ]
+      }
+    ]
+  }
