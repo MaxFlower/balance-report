@@ -5,8 +5,6 @@ import {
 import { ERROR_MESSAGE, RequestError } from '../errors/errors';
 import { XRO_API } from '../index';
 
-const XRO_API_REPORT = `${XRO_API}/Reports`;
-
 export const fetchReport = async (
   params: GetBalanceSheetQueryParams
 ): Promise<GetBalanceSheetResponse> => {
@@ -18,7 +16,7 @@ export const fetchReport = async (
   ).toString();
 
   const response = await fetch(
-    `${XRO_API_REPORT}/BalanceSheet${queryParams ? '?' + queryParams : ''}`,
+    `${XRO_API}/Reports/BalanceSheet${queryParams ? '?' + queryParams : ''}`,
     {
       method: 'GET',
       headers: {
