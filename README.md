@@ -17,7 +17,7 @@ This project is structured as a monorepo with separate client and server directo
 
 ### Get started
 
-Run the following command in your command-line:
+Run the following command in your command line:
 
 ```
    docker-compose up -d --build
@@ -32,7 +32,7 @@ Open app in your browser `http://localhost:5173` and enjoy the result:
 
 ### Run unit tests
 ```
-cd server // from client or server folder
+// from client or server folder
 npm run test
 ```
 Result:
@@ -40,17 +40,17 @@ Result:
 
 ### Code formatting with Prettier
 ```
-// from root
-npm run test
+// from client or server folder
+npm run format
 ```
 
 ### Error handlers
-Processing of various cases is performed on the server and client side
+Processing of various cases is performed on the server and client-side
 In case of an error, a corresponding message will be displayed on the screen
 ![error-message](./assets/error-message.png)
 
 ### Shared lib
-Shared lib can be released as a separate packages and reused in multiple places.
+Shared lib can be released as separate packages and reused in multiple places.
 I use the following item in `tsconfig.json` to share the lib among server and client apps:
 ```
 {
@@ -64,6 +64,6 @@ I use the following item in `tsconfig.json` to share the lib among server and cl
 ### TODO (what might be improved)
 - it makes sense to go with Lerna or Turbo to set up monorepo design
 - use ENV VARIABLES instead of hardcoded values
-- improve validation on backend side
+- improve validation on the backend side
 - increase test coverage
-- improve UI: sheet rendering by improving BalanceSheet, fix edge cases, use more UX practices (apply a11y)
+- improve UI: sheet rendering by improving BalanceSheet, fixing edge cases, using more UX practices (apply a11y)
